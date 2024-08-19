@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:logging_flutter/category/category_page.dart';
-import 'package:logging_flutter/category/category_view_model.dart';
+import 'package:logging_flutter/brand/brand_page.dart';
+import 'package:logging_flutter/brand/brand_view_model.dart';
 import 'package:logging_flutter/settings/settings_page.dart';
 import 'package:logging_flutter/settings/settings_view_model.dart';
-import 'package:logging_flutter/task/task_page.dart';
-import 'package:logging_flutter/task/task_view_model.dart';
+import 'package:logging_flutter/product/product_page.dart';
+import 'package:logging_flutter/product/product_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => TaskViewModel()),
-        ChangeNotifierProvider(create: (_) => CategoryViewModel()),
+        ChangeNotifierProvider(create: (_) => ProductViewModel()),
+        ChangeNotifierProvider(create: (_) => BrandViewModel()),
         ChangeNotifierProvider(create: (_) => SettingsViewModel()..getDarkMode()),
       ],
       child: Consumer<SettingsViewModel>(
@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
             ),
             home: HomePage(),
             routes: {
-              '/tasks': (context) => TaskPage(),
-              '/categories': (context) => CategoryPage(),
+              '/products': (context) => ProductPage(),
+              '/brands': (context) => BrandPage(),
               '/settings': (context) => SettingsPage(),
             },
           );
@@ -54,15 +54,15 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/tasks');
+                Navigator.pushNamed(context, '/products');
               },
-              child: Text('Go to Task Page'),
+              child: Text('Go to Product Page'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/categories');
+                Navigator.pushNamed(context, '/brands');
               },
-              child: Text('Go to Category Page'),
+              child: Text('Go to Brand Page'),
             ),
             ElevatedButton(
               onPressed: () {
