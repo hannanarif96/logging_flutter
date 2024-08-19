@@ -6,8 +6,8 @@ void main() {
   test('Add and Remove Brand', () {
     final brandViewModel = BrandViewModel();
 
-    final brand1 = Brand('Work');
-    final brand2 = Brand('Personal');
+    final brand1 = Brand('Brand1');
+    final brand2 = Brand('Brand2');
 
     brandViewModel.addBrand(brand1);
     brandViewModel.addBrand(brand2);
